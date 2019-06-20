@@ -1,16 +1,16 @@
 <ul class="list-group">
-  <li class="list-group-item">
+  <li class="list-group-item" *ngFor="let todo of todos | async">
     <div class="row">
       <div class="col-9">
         <div class="d-flex justify-content-start">
           <h3 class="h-3">
-            Cras justo 
+            {{todo.title}}
           </h3>
         </div>
       </div>
       <div class="col-3">
         <div class="d-flex justify-content-end">
-          <button type="button" class="btn btn-primary my-btn" [routerLink]="['/read']">Edit</button>
+          <button type="button" class="btn btn-primary my-btn" [routerLink]="['/read, todo.id']">Edit</button>
           <button type="button" class="ml-2 btn btn-primary">Delete</button>
 
         </div>

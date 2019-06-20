@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosService } from '../todos.service';
+import { Observable } from 'rxjs';
+import { TodoModel } from '../todo-model';
 
 @Component({
   selector: 'app-start',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartComponent implements OnInit {
 
-  constructor() { }
+  todos: Observable<TodoModel[]>;
 
+  constructor(
+    private todosService: TodosService
+  ) { }
+  
   ngOnInit() {
+    this.todos = this.todosService.getAll()
   }
 
 }

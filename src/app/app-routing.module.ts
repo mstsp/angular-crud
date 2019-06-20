@@ -9,7 +9,7 @@ const routes: Routes = [
     path: 'create', component: CreateComponent, pathMatch: 'full'
   },
   {
-    path: 'read', component: ReadComponent, pathMatch: 'full'
+    path: 'read/:id', component: ReadComponent, pathMatch: 'full'
   },
   {
     path: 'start', component: StartComponent, pathMatch: 'full'

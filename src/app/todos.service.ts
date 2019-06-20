@@ -17,8 +17,14 @@ export class TodosService {
   public getAll(): Observable<any> {
     return this.httpClient.get(this.url)
     .pipe(
-      map((response: HttpResponse<TodoModel[]>) => {
-        return response.body
+      map((response: TodoModel[]) => {
+        return response.map((el) => {
+          return new TodoModel(
+            el.id,
+            el.title,
+            el.description
+          )
+        })
       })
     );
   }
